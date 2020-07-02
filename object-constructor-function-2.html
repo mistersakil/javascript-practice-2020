@@ -1,0 +1,26 @@
+<h1>Javascript Object Constructor Function</h1>
+<script type="text/javascript">
+	function Person (first, last, age, sex, interests)  {
+		let he = sex.toLowerCase() === 'male' ? 'He' : 'She'
+		let his = sex.toLowerCase() === 'male' ? 'His' : 'Her'
+		this.name = {
+			first: first.charAt(0).toUpperCase() + first.slice(1),
+			last: last.charAt(0).toUpperCase() + last.slice(1)
+		}
+		this.age = age
+		this.sex = sex		
+		this.interests = interests.replaceAll(', ', ',').split(',')
+	}
+
+	function Teacher(teaches){
+		this.teaches = teaches
+	}
+	Teacher.prototype = Object.create(Person.prototype)
+
+	console.log(Person.prototype)
+	console.log(Teacher.prototype)
+	// let one = new Person('sakil', 'mahmud', 30, 'male', 'reading, watching, playing')
+	// let two = new Teacher('physics')
+	// console.log(one.constructor)
+	// console.log(two)
+</script>

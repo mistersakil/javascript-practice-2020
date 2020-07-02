@@ -1,0 +1,33 @@
+<h1>Javascript Object Constructor Function</h1>
+<script type="text/javascript">
+	function Person (first, last, age, sex, interests)  {
+		let he = sex.toLowerCase() === 'male' ? 'He' : 'She'
+		let his = sex.toLowerCase() === 'male' ? 'His' : 'Her'
+		this.name = {
+			first: first.charAt(0).toUpperCase() + first.slice(1),
+			last: last.charAt(0).toUpperCase() + last.slice(1)
+		}
+		this.age = age
+		this.sex = sex		
+		this.interests = interests.replaceAll(', ', ',').split(',')
+		this.bio = () => {
+			console.log(`${his} name is '${this.name.first} ${this.name.last}'' and ${he} is '${this.age}' years old`)
+		}
+	}
+
+	const person1 = new Person('sakil', 'mahmud', 30, 'male', 'coding, eating, playing')
+	const person2 = new Person('Jaba', 'islam', 36, 'female', 'eating, sleeping')
+
+	// person1.bio()
+	// person2.bio()
+	// console.log(person1)
+	// console.log(Person.prototype)
+	// console.log(Object.getPrototypeOf(person2))
+	// console.log(person2.__proto__)
+	// console.log(person2.__proto__.__proto__)
+	// console.log(person2.prototype.isPrototypeOf(Person))
+	let person3 = Object.create(person1)
+	// console.log(person1)
+	// console.log(person3.constructor)
+	// console.log(Person.prototype)
+</script>

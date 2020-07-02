@@ -1,0 +1,62 @@
+<h1>Javascript Object Class</h1>
+<script type="text/javascript">
+	class Person{
+		constructor({name, age, interests, sex}){
+			this.name = name
+			this.age = age
+			this.interests = interests.replaceAll(', ',',').split(',')
+			this.sex = sex
+			this.prefix = this.getPrefix(sex.toLowerCase())
+			
+		}
+		getPrefix(sex){
+			let prefix = null
+			switch(sex){
+				case 'male':
+				case 'm':{
+					prefix = 'Mr.'
+					break
+				}
+				case 'female':
+				case 'f':{
+					prefix = 'Ms.'
+					break
+				}
+				default:
+					prefix = 'Mx.'
+					break
+			}
+			return prefix
+		}
+
+		bio(){
+			console.log(`My name is ${this.prefix} ${this.name} and i'm ${this.age} years old`)
+		}
+		farewell(){
+			console.log(`${this.prefix} ${this.name} has left this office. Have a good luck!!!`)
+		}
+	}
+
+	class Teacher extends Person{
+		constructor({name, age, sex, interests, subject, grade}){
+			super({name, age, sex, interests})
+			this.grade = grade
+			this.subject_ = subject
+		}
+		get subject(){
+			console.log(this.subject_)
+		}
+		set subject(subject){
+			this.subject_ = subject
+		}
+
+	}
+
+	let sakil =  new Person({name: 'sakil',sex: 'Male', age: 30, interests: 'reading, playing, travelling'})
+	let jaba =  new Teacher({name: 'jaba',sex: 'Female', age: 27, interests: 'reading, playing, travelling', subject: 'Math', grade: 5})
+	// sakil.bio()
+	// jaba.farewell()	
+	jaba.subject
+	jaba.subject = "Bangla"
+	jaba.subject
+</script>

@@ -5,7 +5,38 @@
 	let human = {
 		speak: true,
 		height: () => {
-			alert('5 fet')
+			console.log('5 fet')
+		},
+		hands(){
+			console.log('2 hands')
+		},
+		walk: function(){
+			console.log('walking distance 30 centimeter')
 		}
 	}
+
+	let american = {
+		bodyColor: 'white',		
+		citizen: 'American',
+		walk(){
+			console.log('walking distance 40 centimeter')
+		}
+	}
+	american.__proto__ = human
+
+	let mentality = {
+		critical: true,
+		__proto__: american,
+
+	}
+
+	console.log(mentality.critical)
+	console.log(mentality.citizen)
+	console.log(mentality.speak)
+	mentality.walk()
+
+	let ar = [4,3,5,1,8]
+	
+
+
 </script>
