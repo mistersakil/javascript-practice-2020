@@ -1,0 +1,26 @@
+<h1>Javascript Async Await Promise</h1>
+<script type="text/javascript">
+	async function asyncTest(text = 'default', time = 1000){
+		return new Promise((res, rej) => {
+			setTimeout(() => res(text), time)
+		})
+	}
+	asyncTest()
+
+	let p1 = asyncTest()
+	let p2 = asyncTest('promise 2', 5000)
+	// console.log(p1, p2)
+	// p1.then(res => {
+	// 	console.log(p1, res)
+	// })
+	// p2.then(res => {
+	// 	console.log(p2, res)
+	// })
+
+	let all = Promise.all([p1,p2])
+	// console.log(all)
+	all.then(res => {
+		console.log(all)
+	})
+	
+</script>

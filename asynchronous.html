@@ -1,0 +1,90 @@
+<h1>Javascript Asynchronous Programming</h1>
+<button id="btn1" style="background: green">Click me 1</button>
+<button id="btn2" style="background: yellow">Click me 2</button>
+<button id="btn3" style="background: red">Click me 3</button>
+<button id="btn4" style="background: pink">Click me 4</button>
+<button id="btn5" style="background: coral">Click me 5</button>
+<button id="btn6" style="background: coral">Create Date</button>
+<button id="btn7" style="background: coral">Alert Date</button>
+<script type="text/javascript">
+
+	function createDate(callback = null ){
+		let date = 'date is not set yet'
+		for(let i = 0; i <= 10000000; i++){
+			date = new Date()
+		}
+		// setTimeout(() => {
+		// 	date = new Date()
+		// } , 3000)
+		callback(date)
+	}
+	function displayDate(date = 'Nothing'){
+		let pEl = document.createElement('p')
+		pEl.textContent = `Date is : ${date}`
+		document.body.appendChild(pEl)
+	}
+	createDate(displayDate)
+	
+
+	let dateForBtn6
+	document.querySelector('#btn6').onclick = () => {
+		setTimeout(() => console.log('timeout'), 1000)
+		for(let i = 0; i <= 10000000; i++){
+			dateForBtn6 = new Date()
+		}
+		console.log(dateForBtn6)
+
+	}
+	document.querySelector('#btn7').onclick = () => {
+		alert('hello date')
+	}
+
+
+
+	const request = () => console.log('give me a pen, please')
+	
+	const sucess = () => console.log('Thank you i am writing')
+	document.querySelector('#btn5').onclick = () => {
+		setTimeout(() => {
+			console.log('Please wait, i am bringing your pen')
+			sucess()
+		},2000)
+		
+	}
+	// request()
+
+
+
+
+	document.querySelector('#btn4').onclick = function(){
+		console.log('give me a pen please')
+		setTimeout(() => {
+			console.log('sure! this is your pen')
+		},3000)
+		console.log('thanks :) i am writing')
+	}
+	document.querySelector('#btn2').onclick = function(){
+		let date
+		for(let i = 0; i< 10000000; i++){
+			date = new Date()			
+		}
+		console.log(date)
+	}
+	document.querySelector('#btn3').onclick = function(){
+		console.log('3rd btn clicked')
+	}
+	document.querySelector('#btn1').onclick = function(){
+		console.log('btn clicked')
+		let newDate
+		for(let i = 0; i< 10000000; i++){
+			let date = new Date()
+			newDate = date
+		}
+		console.log(newDate)
+		let pEl = document.createElement('p')
+		pEl.textContent = 'this is running after date logged successfullly'
+		document.body.appendChild(pEl)
+
+	}
+	
+</script>

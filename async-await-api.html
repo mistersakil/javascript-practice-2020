@@ -1,0 +1,15 @@
+<h1>Javascript Async Await Promise</h1>
+<script type="text/javascript">
+	async function fetching(){
+		console.log("start fetching post from jsonplaceholder")
+		let posts = await fetch('https://jsonplaceholder.typicode.com/photos')
+		console.log("Please wait")
+		let postJson =  await posts.json()
+		console.log("Please wait few more time")
+		await console.log(postJson)
+		console.log("Finish")
+	}
+	fetching()
+
+
+</script>

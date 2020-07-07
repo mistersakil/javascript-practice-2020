@@ -1,0 +1,13 @@
+<h1>Javascript Callback</h1>
+<script type="text/javascript">
+
+	function calc(a,b,callback){
+		a = parseInt(a)
+		b = parseInt(b)
+		callback(a,b)
+	}
+
+	calc(2,5,(c,d) => console.log(c+d))
+	calc(5,5,(c,d) => console.log(c * d))
+	
+</script>

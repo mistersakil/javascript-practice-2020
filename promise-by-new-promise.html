@@ -1,0 +1,45 @@
+<h1>Javascript Promise</h1>
+<script type="text/javascript">
+
+// promise advance example
+
+function myPromise(time = 1000, msg = 'default'){
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(msg)
+		},time)
+	})
+}
+console.log('promise operatoin started')
+let p11 = myPromise()
+let p12 = myPromise(10000, 'Promise 12')
+let p13 = myPromise(4000, 'Promise 13')
+let p14 = myPromise(7000, 'Promise 14')
+p11.then(response => console.log(response))
+p12.then(response => console.log(response))
+p13.then(response => console.log(response))
+p14.then(response => console.log(response))
+Promise.all([p11, p12, p13, p14]).then(response=> console.log(response))
+
+console.log('Promise operation finished')
+
+
+// promise basic example 
+
+
+let p1 = new Promise((resolve, reject) => {
+	return resolve('first promise resolved')
+})
+let p2 = new Promise((resolve, reject) => {
+	// return reject('Error from second promise')
+	return resolve('second promise resolved')
+})
+Promise.all([p1,p2])
+.then(response => {
+	// console.info(response)
+})
+.catch(error => {
+	// console.log(error)
+})
+	
+</script>

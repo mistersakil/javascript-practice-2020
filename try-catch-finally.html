@@ -1,0 +1,31 @@
+<h1 align="center">Javascript Try Catch Finally Block</h1>
+
+<script type="text/javascript">
+
+function func() {
+	try{
+		console.log('Try block from func()')
+		throw 'try block error'
+	}catch(error){
+		console.log('catch block from func() ')
+		console.log(error)
+		throw 'catch block error from inner' // works like return value
+		// return 'catch return inner'
+		
+	}finally{
+		console.log('finally block from func()')
+		// throw 'finally block erro inner'
+		// return 'finally return inner'
+	}
+	return 1234
+
+}	
+
+try{
+	console.log(func())
+}catch(e){
+	console.log('Catch from outer block: ' + e)
+}
+
+
+</script>

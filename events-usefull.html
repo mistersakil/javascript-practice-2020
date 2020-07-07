@@ -1,0 +1,32 @@
+<h1>Javascript Usefull Events</h1>
+<script type="text/javascript">
+	((length) => {
+		for(i = 0; i < length; i ++){
+			let div = document.createElement('div')
+			div.style.width = '25%'
+			div.style.height = '250px'
+			div.style.backgroundColor = 'red'
+			div.style.float = 'left'
+			div.style.boxSizing = 'border-box'			
+			document.body.appendChild(div)
+		}
+	})(12)
+
+	const random = (number) => {
+		let rand = Math.floor((Math.random() * number) * 1.2 )
+		rand = rand > 255 ? 255 : rand 
+		return rand 
+	}
+
+	const randomColor = () => {
+		return `rgb(${random(255)},${random(255)},${random(255)})`
+	}
+
+	let divs = document.querySelectorAll('div')
+	divs.forEach(div => {
+		div.onclick = (e) => {
+			e.target.style.backgroundColor = randomColor()
+		}
+	})
+
+</script>
