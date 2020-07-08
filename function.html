@@ -1,0 +1,88 @@
+<h1 align="center">Javascript Function</h1>
+<button>Click to count</button>
+<script type="text/javascript">
+
+// Function This keyword
+
+function blog(){
+	this.views = 0
+
+	setInterval(() =>{
+		console.log(this.views + 1)
+	},1000)
+}	
+// new blog
+
+// Clouse with IIFE
+
+// ((outer) => {	
+// 	return (inner) => {
+// 		console.log(`${outer} ${inner}`)
+// 	}
+// })('outer')('inner')
+
+
+// Complex clouser
+
+function person(name = 'Default'){
+	let age
+	let sex
+	return {
+		getName	: () => console.log(name),
+		setName	: newName => name = newName,
+		setSex	: newSex => sex = newSex,
+		getSex	: () => console.log(sex)
+	}
+
+}
+
+let sakil = person('Sakil')
+// sakil.getName()
+// sakil.setName('Pink')
+// sakil.getName()
+// sakil.setSex('male')
+// sakil.getSex()
+
+
+// Counter with clouser
+function counter(){
+	let count = 0
+	return () => ++count
+}
+let myCount = counter()
+
+document.querySelector('button').onclick = (e) => {	
+	e.target.innerText = `Click to count : ${myCount()}`
+}
+
+// Clouser
+function outer(a){
+	return function(b){
+		return a * b
+	}
+}
+
+let out = outer(5)
+// console.log(out(4))
+
+// Recursion
+function foo(i) {
+  if (i < 0)
+    return true;
+  console.log('begin: ' + i);
+  foo(i - 1);
+  console.log('end: ' + i);
+}
+// foo(3);
+
+let a = 5
+function abc(b){
+	b = b * b
+	return b
+}
+// console.log(abc(a))
+// console.log(a)
+
+
+
+</script>
