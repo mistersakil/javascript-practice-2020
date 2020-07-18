@@ -1,0 +1,30 @@
+<script>
+const brickCalculation = (floor = 1) => {
+	const BRIKS_FOR_PER_FIT = 1000
+	const height10 = 10
+	const height12 = 12
+	const height15 = 15
+	const floor10 = 10 
+	const floor20 = 20
+	const numberOfBriksForFirst10 = BRIKS_FOR_PER_FIT * height15 * floor10
+	const numberOfBriksForSecond10 = BRIKS_FOR_PER_FIT * height12 * floor10
+	const numberOfBriksForLess10 = BRIKS_FOR_PER_FIT * height15
+	let totalNumberOfBriks = 0
+
+	if(floor <= floor10){
+		totalNumberOfBriks = numberOfBriksForLess10 * floor
+	}else if(floor <= floor20){
+		floor = floor - floor10
+		totalNumberOfBriks = numberOfBriksForFirst10 + (floor * height12 * BRIKS_FOR_PER_FIT)
+	}else{
+		floor = floor - floor20
+		totalNumberOfBriks = numberOfBriksForFirst10 + numberOfBriksForSecond10 + (floor * height10 * BRIKS_FOR_PER_FIT)
+	}
+	return totalNumberOfBriks
+}
+console.log(brickCalculation(10)) // 150000
+console.log(brickCalculation(11)) // 162000
+console.log(brickCalculation(21)) // 280000
+
+	
+</script>

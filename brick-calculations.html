@@ -1,5 +1,5 @@
-<script type="text/javascript">
-const brickCalculation = floor => {
+<script>
+const brickCalculation = (floor = 1) => {
 	let numberOfBriks = 0
 	if(floor <= 10){
 		numberOfBriks = floor * 15 * 1000
@@ -12,7 +12,10 @@ const brickCalculation = floor => {
 	}
 	return numberOfBriks
 }
-console.log(brickCalculation(20))
+console.log(brickCalculation(10)) // 150000
+console.log(brickCalculation(11)) // 162000
+console.log(brickCalculation(21)) // 280000
+console.log(brickCalculation(1)) // 280000
 
 	
 </script>
