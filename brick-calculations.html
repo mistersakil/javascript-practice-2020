@@ -1,0 +1,20 @@
+<script type="text/javascript">
+const brickCalculation = floor => {
+	let numberOfBriks = 0
+	let afterFloor10 = 10
+	let afterFloor20 = 20
+	if(floor <= 10){
+		numberOfBriks = floor * 15 * 1000
+	}else if(floor <= 20){
+		floor = floor - 10
+		numberOfBriks = (10 * 15 * 1000) + (floor * 12 * 1000)
+	}else{
+		floor = floor - 20
+		numberOfBriks = (10 * 15 * 1000)+ (10 * 12 * 1000) + (floor * 10 * 1000)
+	}
+	return numberOfBriks
+}
+console.log(brickCalculation(20))
+
+	
+</script>

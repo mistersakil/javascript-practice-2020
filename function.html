@@ -1,6 +1,30 @@
 <h1 align="center">Javascript Function</h1>
 <button>Click to count</button>
 <script type="text/javascript">
+// Function rest arguments and rest operators
+
+// let ar = [1,2,32,4,56] // below function works similer to this example
+// console.log(...ar)
+function math2(...args){	
+	let sum = 0
+	// for(let number of args){  // this works perfectly fine
+	// 	sum += number
+	// }
+	args.forEach(number => sum += number)
+	console.log(sum)
+}
+math2(1,2,3)
+
+
+function math(){	
+	let sum = 0
+	for(let number of arguments){
+		sum += number
+	}
+	console.log(sum)
+}
+
+// math(100,200,300)
 
 // Function This keyword
 

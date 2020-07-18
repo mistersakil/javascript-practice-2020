@@ -1,0 +1,23 @@
+<body>
+	<h1>Prototypal inheritance</h1>
+</body>
+<script>
+	function Employee(){
+		this.dept = 'General'
+		// this.name = 'Name from employee constructor' // works third
+	}
+	Employee.prototype.name = "name form employee prototype"
+	function Engineer(){
+		this.dept = 'IT'
+		// this.name = 'name form engineer constructor' // works second
+	}
+	Engineer.prototype = new Employee()
+	let sakil = new Engineer
+	// sakil.name = 'name from sakil object' // works first
+	// console.dir(Engineer)
+	console.dir(sakil)
+	console.log(sakil.name)
+
+
+
+</script>
