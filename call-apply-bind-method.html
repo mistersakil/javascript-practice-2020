@@ -1,0 +1,42 @@
+<h1>apply() method</h1>
+<script>
+	const myBio = function () {
+		console.log(`Hello ${this.name}. your email id ${this.email}`)
+	}
+	let p3 = myBio.bind({name:'sakil',email:'sakil@gmail.com'})
+	p3()
+	console.log("======================")
+	const bio =  function (email) {
+		console.log(`Hello ${this.name}. your email id ${email}`)
+	}
+	bio.call({name: 'sakil'}, 'sakil@gmail.com')
+	bio.apply({name: 'Rasel'}, ['rasel@gmail.com'])
+
+	const  sum = (a,b) => {
+		console.log(`Sum of arguments ${a + b}`)
+	}
+	sum(5,5)
+	sum.call(null,10,5) // arguments as individual
+	sum.apply(null,[10,5]) // arguments as array
+
+	// apply on math object
+	let max = Math.max(1,20,30,50,4,6)
+	let max2 = Math.max.apply(null, [1,20,30,50,4,6])
+	console.log(max)
+	console.log(max2)
+
+	// applying on object method
+
+	const person = {
+		name: 'sakil',
+		email: 30,
+		bio: function(age){
+			console.log(`Hello ${this.name} and your email: ${this.email} and your age is: ${age}`)
+		}
+	}
+
+	person.bio.call({name:'Rasel',email:'rasel@gmail.com'}, 35)
+	person.bio.apply({name:'Sakil',email:'sakil@gmail.com'}, [31])
+	
+
+</script>

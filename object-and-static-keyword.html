@@ -1,0 +1,38 @@
+<script type="text/javascript">
+
+	class Person {
+		constructor(name){
+			this.name = name
+			let protos = Object.getPrototypeOf(this)
+			console.log(Object.getOwnPropertyNames(protos))
+		}
+		static details(){
+			return "msg " + this.name
+		}
+		set name_(newName){
+			this.name = newName
+		}
+
+		get name_(){
+			console.log('get name: ' + this.name)
+		}
+
+		static info(){
+			console.log('static info: ' + this.name)
+			let protos = Object.getPrototypeOf(this)
+			// console.log((protos))
+			console.log(Object.getOwnPropertyNames(this))
+			console.log(this.length)
+		}
+	}
+
+	let p1 = new Person('sakil')
+	// p1.name_ = "Rasel"
+	// console.log(p1)
+	// p1.name_
+	// console.log(Person.details('sakil'))
+	 // Person.name_ = "kiron"
+	 // Person.name_
+	 Person.info()
+
+</script>

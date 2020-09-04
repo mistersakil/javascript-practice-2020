@@ -1,12 +1,56 @@
 <h1>Javascript Object</h1>
 <script type="text/javascript">
+	const name = "nayem"
+	var obj3 = {
+	   name:"Iftakher",
+	   bio: function(){
+	   	 
+	   }
+	 }
+	 
+	 function myInfo(){
+	   	console.log(this.name)
+   	 }
+   	 myInfo.call(obj3)
+
+	// function print(){
+	//  document.write(this.name) 
+	// }
+	//  var obj = {
+	//    name:"Iftakher",
+	//  }
+	//  var binded = print.bind(obj) 
+	//  binded()
+	 // =============
+	// var first = function (a,b,c){
+ // 		return a + b + c
+ // 	}
+ // 	var second = first.bind(null,"Iftakher",'two')
+ // 	console.log(second(999))
+
+ var first = function (a,b){
+ 		return this + a
+ 	}
+ 	var second = first.bind(2,3)
+ 	// console.log(second())
+
+	class a{
+		constructor(hight, width){
+			this.hight = hight
+			this.width = width
+		}
+	}
+	// let ob = new a(10 , 20)
+	// let {ab,cd} = ob
+	// console.log(ob)
+	// console.log(ab + cd)
 
 	const obj = {
 		name: "Mister Nayem",
 		details() { return () => console.log(`${this.name} is web GURU`) }
 	}
 	let myDetails = obj.details()
-	myDetails()
+	// myDetails()
 
 
 </script>

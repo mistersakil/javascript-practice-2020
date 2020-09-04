@@ -1,0 +1,96 @@
+<h1>this</h1>
+<button>Click me</button>
+<script>
+let btn = document.querySelector('button')
+btn.addEventListener('click',function(){
+	console.log(this)
+})
+// btn.onclick = function(){
+// 	console.log(this) // target element
+// }
+// btn.onclick = () => {
+// 	console.log(this) // window object 
+// }
+
+// Tight context bind
+
+function tight(number){
+	'use strict'
+	// console.log( this.num * number)
+}
+let tight2 = tight.bind({num:10}) // valid
+// tight2(5)
+// setTimeout(tight.bind({num:10},3), 2000) // valid
+// tight2.call({a:5})
+// tight2.apply({a:5})
+// let tight3 = tight2.bind(12)
+// tight3()
+tight.prototype.abcd = function(){
+	return this
+}
+let obj2 = new tight2(99)
+
+// console.log(obj2)
+
+// the this 
+
+var cName = 'Bangladesh'
+
+function Country(name){
+	this.cName = name
+	this.details = function(){
+		console.log('outer function ',this.cName)
+		function de(){
+			console.log('inner function ', this.cName)
+		}
+		de()
+
+	}
+}
+let bd = new Country("BD")
+// bd.details()
+
+
+// call apply bind
+let myObj = {name: 'sakil'}
+// var name = 'global window 2' 
+// window.name = 'global window' // valid
+let myInfo = function(){
+	console.log('My name is:', this.name)
+}
+// setTimeout(myInfo.bind(myObj), 1000)
+
+// call and apply
+let obj = {
+	a: 3,
+	b: 4,
+	c: function(){
+		function sum(){
+			console.log(`${this.a} + ${this.b} = ${this.a + this.b}`)			
+		}
+		// sum.apply(this)
+		// sum.call(this)
+		
+		// sum() // function call gets window object as this
+	}
+}
+// obj.c()
+
+
+
+// function bind
+function pet(name){
+    this.name = name
+    this.info = function() {
+        console.log( `I have a ${this.name}` )
+    }
+}
+let bio = function () {
+    console.log( `I have a ${this.name}` )
+}
+	
+let cat = new pet('cat')
+let dog = {name: 'dog child'}
+// cat.info()
+// setTimeout(bio.bind(dog), 1000)
+</script>

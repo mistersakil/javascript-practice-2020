@@ -1,0 +1,23 @@
+<h1>Higher Order Function</h1>
+<script type="text/javascript">
+	
+	function interview(name = 'default'){
+		if(name =='sakil'){
+			return (topic) => {
+				console.log(`Hello ${name}, please explain what is ${topic}`)
+			}
+		}else{
+			return (topic) => {
+				console.log(`Hello ${name}, please explain what is ${topic}`)
+
+			}
+		}
+	}
+	let p1 = interview('sakil')
+	p1('php')
+	p1('js')
+	p1('react')
+	// console.dir(p1)
+
+
+</script>

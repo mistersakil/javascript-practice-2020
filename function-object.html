@@ -1,0 +1,101 @@
+<h1>Function Object</h1>
+<script>
+/*
+Set and decrease for counter
+importance: 5
+Modify the code of makeCounter() so that the counter can also decrease and set the number:
+
+counter() should return the next number (as before).
+counter.set(value) should set the counter to value.
+counter.decrease() should decrease the counter by 1.
+See the sandbox code for the complete usage example.
+
+P.S. You can use either a closure or the function property to keep the current count. Or write both variants.
+*/
+function mkCounter(){
+	let count = 0
+	let counter = () => count++
+	counter.set = (setCount) => count = setCount
+	counter.decrease = () => count --
+	return counter 
+}
+let counter = mkCounter()
+counter.set(10)
+console.log(counter())
+console.log(counter.decrease())
+// counter.decrease()
+
+
+
+
+function makeCounter() {
+  // instead of:
+  // let count = 0
+
+  function counter() {
+    return ++counter.count;
+  };
+
+  counter.count = 0;
+
+  return counter;
+}
+// let myCounter = makeCounter()
+// console.log(myCounter())
+// console.log(myCounter())
+// console.log(myCounter())
+// let myCounter2 = makeCounter()
+// console.log(myCounter2())
+// console.log(myCounter2())
+
+ function hasProp(){
+ 	return () => ++hasProp.count
+ }
+ hasProp.count = 0
+ let count = hasProp()
+ // console.log(count())
+ // console.log(count())
+ // console.log(hasProp.hasOwnProperty('count'))
+
+ 
+
+function ask(...callbacks){
+	let outerScope = 'Outer scope'
+	for(let callback of callbacks){
+		console.log(callback.length)
+		if(callback.length > 0){			
+			callback(`you have ${callback.length} arguments and can access ${outerScope}`)			
+		}else{
+			callback()
+		}
+	}
+}
+// ask(arg1 => console.log(arg1), () => console.log(`you have 0 arguments`))
+
+
+// function properties
+let f1 = function(a,b,c){
+	console.log(f1.arguments)
+console.log(f1.caller)
+}
+// f1(1,2,3)
+// console.log(f1.displayName)
+// console.log(f1.name)
+// console.log(f1.length)
+
+
+
+function myF(){
+	console.log('myF function')
+}
+let myFF = function(){
+
+}
+let myFFF =() => {
+
+}
+// console.log(myF.name) // myF
+// console.log(myFF.name) // myFF
+// console.log(myFFF.name) // myFFF
+
+</script>

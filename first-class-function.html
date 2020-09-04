@@ -1,0 +1,32 @@
+<h1>First Class Function</h1>
+<script type="text/javascript">
+	// 3. function can return as a function
+
+	function outer(greet = 'hello'){
+		return name => console.log(`${greet} ${name}`)
+	}
+	outer('Hi')('sakil') // OR
+	let innterFunc = outer('Howdy')
+	innterFunc('Rasel')
+
+	// 2. function can pass as argument
+	const calculate = (a,b,callback) => {
+		callback(a,b)
+	}
+	calculate(2,3,function(c,d){
+		console.log(c+d)
+	})
+	calculate(20,3,function(c,d){
+		console.log(c * d)
+	})
+
+	// 1. function can assign into a variable
+
+	const greet = function(name){
+		console.log(`Hello ${name}`)
+	}
+	greet('sakil')
+	greet('rasel')
+
+
+</script>

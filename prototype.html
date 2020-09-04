@@ -1,0 +1,57 @@
+<h1>Prototype</h1>
+<script>
+	var name = "nayem"
+	var obj3 = {
+	   name:"Iftakher",
+	   bio(){
+	   	 function myInfo(){
+	   		return this.name
+	   	 }
+	   	return myInfo()
+	  
+	   }
+	 }
+	 console.log(obj3.bio())
+	// function a(){}
+	// console.log(a())
+
+	const user = {
+		fname: 'first',
+		lname: 'last',		
+		get bio(){
+			console.log(`${this.fname} ${this.lname}`)
+		},
+		set bio(data){
+			[this.fname, this.lname] = data.split(" ")
+		},
+		userType(type = false){
+			this.isAdmin = type
+		}
+	}
+	const admin = {		
+		fname: 'Admin',
+		lname: 'Admin',
+		__proto__: user
+	}
+	// console.log(Object.keys(admin))
+	let ownProps = []	
+	let inheritedProps = []
+	for(let key in admin){
+		// console.log(key)
+		if(admin.hasOwnProperty(key)){
+			ownProps.push(key)
+		}else{
+			inheritedProps.push(key)
+		}
+	}
+	console.log(ownProps, inheritedProps)	
+	// admin.bio
+	// admin.bio = 'sakil mahmud'
+	// admin.bio
+	// console.log(admin.isAdmin)
+	// admin.userType(true)
+	// console.log(admin.isAdmin)
+	// console.log(user.isAdmin)
+
+	
+</script>

@@ -1,0 +1,21 @@
+<h1>Lexical scoping</h1>
+<script>
+
+	function Person(name, email){
+		this.name = name 
+		this.email = email 
+		this.bio = function(age){
+			console.log(`Hello ${this.name} your email id: ${this.email} and age is: ${age}`)
+		}
+		this.getEmail = () => {
+			console.log(`Your emial is: ${this.email}`)
+		}
+
+	}
+	
+	let p1 = new Person('sakil','sakil@gmail.com')
+	p1.bio(31)
+	p1.getEmail()
+	p1.bio.call({name:'Rasel',email:"rasel@gmail.com"},32) // using call method
+
+</script>
