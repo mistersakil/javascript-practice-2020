@@ -1,0 +1,20 @@
+<h1>Recursion Head & Tail</h1>
+<script>
+  // ########## Tail recursion
+  function recursionHead(n){
+    if(n > 0){
+      console.log(n)
+      recursionHeadl(n-1)
+    }
+  }
+  recursionHead(3)
+  function recursionTail(n){
+    if(n > 0){
+      recursionTail(n-1)
+      console.log(n)
+    }
+  }
+  recursionTail(3)
+  
+</script>
+

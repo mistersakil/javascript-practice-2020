@@ -1,0 +1,44 @@
+<h1>Events</h1>
+<button id="btn">Button click</button>
+<button id="btn2">Button click to hide</button>
+<div id="text">
+	content shoudl be toggled
+</div>
+<script>
+	btn2.addEventListener('click',() => {
+		console.log('addEventListener')
+	})
+	btn2.removeEventListener('click',() => {
+		console.log('removeEventListener')
+	})
+	btn2.onclick = function(){
+		this.hidden = true
+		console.log('onclick property')
+	}
+	btn.onclick = function(e){
+		text.hidden = text.hidden ? false : true
+	}
+// Events as class object
+
+class MyClass{
+	handleEvent(event){
+		this['on'+event.type[0].toUpperCase()+event.type.slice(1)]()
+	}
+	onMousedown(){
+		// console.log(this)
+	}
+	onMouseup(){
+		// console.log(this)
+	}
+}
+let obj = new MyClass()
+
+
+btn.addEventListener('mousedown',obj)
+btn.addEventListener('mouseup',obj)
+
+document.addEventListener('DOMContentLoaded', function(){
+	// console.log(this)
+})
+
+</script>	

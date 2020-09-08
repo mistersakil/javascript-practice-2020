@@ -1,0 +1,33 @@
+<html>
+<head>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+  <h1>Dynamic tree</h1>
+  <ul id="list"></ul>
+  
+  <script>
+    
+    // do{
+    //   // item = prompt('Please add a shopping item')
+    //   list.insertAdjacentHTML('beforeend',`<li>${item}</li>`)
+    // }while(item);
+    let hasItem = true
+    while(hasItem){
+      item = prompt('Please add a shopping item')
+      let li = document.createElement('li')
+      li.textContent = item 
+      if(item){
+        list.append(li)
+      }else{
+        hasItem = false
+      }
+    }
+	   
+
+
+  </script>
+    
+</body>
+</html>

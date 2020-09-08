@@ -1,0 +1,81 @@
+<h1>DOM Modifying</h1>
+<ul>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+<h2 id="heading1">heading one</h2>
+<h2 id="heading2">heading two</h2>
+<div id="div1">
+	<p><strong>Hi there :) </strong> Welcome to SL3</p>
+</div>
+<h2>DocumentFragment</h2>
+<ul id="fragment"></ul>
+<ul id="fragment2"></ul>
+<p>After one second the contents of this page will be replaced...</p>
+<p id="p1"></p>
+<p id="p2"></p>
+<p id="p4"></p>
+<p id="p3"></p>
+<table id="table">
+  aaa
+  <tr>
+    <td>Test</td>
+  </tr>
+</table>
+
+<script>
+	let text1 = '<b>text content</b>'
+	p1.append(text1)
+	p4.append(document.createTextNode(text1))
+	p2.textContent = text1
+	p3.innerHTML = text1
+	// ================================
+	// setTimeout(() => document.write('<b>...By this.</b>'), 3000);
+	// document.write('<b>...By this.</b>')
+	// ================================
+	let list = []
+	for(let i = 1; i <= 5; i++){
+		let li = document.createElement('li')
+		li.textContent = i 
+		list.push(li)
+	}
+	// console.log(list)
+	fragment2.append(...list)
+	// ===============================
+	let fragmentElement = new DocumentFragment()
+	for(let i = 1; i <=3; i++){		
+		let li = document.createElement('li')
+		li.textContent = i 
+		fragmentElement.append(li)
+	}
+	// console.log(fragmentElement)
+	fragment.append(fragmentElement)
+	// ==================================
+	let div1Clone = div1.cloneNode(true)
+	// console.log(div1Clone)
+	div1Clone.querySelector('strong').textContent = 'Bye There :('
+	div1.after(div1Clone)
+	// heading1.remove()
+	// heading2.after(heading1) 
+	let head1 = `<h2>Heading three</h2>`
+	heading1.remove()
+	// console.log(typeof head1)
+	heading2.after(head1)
+	heading2.insertAdjacentHTML('afterend',head1)
+	let el = document.querySelector('ul')
+	let prepEl = document.createElement('li')
+	prepEl.innerHTML = '1'
+	el.prepend(prepEl)
+	el.insertAdjacentHTML('beforeend','<li>5</li> ')
+	let lis = el.children
+	let list_count = lis.length
+	
+	let i = 0
+	for(let li of lis){		
+		setTimeout(() => {
+			// li.remove()
+		},1000 * (i+1))
+		i++
+	}
+</script>

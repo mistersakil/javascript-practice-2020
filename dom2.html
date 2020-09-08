@@ -1,0 +1,41 @@
+<h1>DOM</h1>
+<h2 id="dom2">Dom two</h2>
+<ul>
+	<li>one</li>
+	<li>two</li>
+</ul>
+<ul>
+	<li>three</li>
+	<li>four</li>
+</ul>
+
+<div class="contents">
+	<h1>List items with querySelector()</h1>
+	<div class="ulParent">
+		<ul class="ulParent">
+			<li class="listitems">1</li>
+			<li class="listitems">2</li>
+		</ul>
+		<ul>
+			<li class="listitems">3</li>
+			<li class="listitems">4</li>
+		</ul>		
+	</div>
+</div>
+<h2 id="blink">A blinking element</h2>
+
+<script type="text/javascript">
+	console.log(blink.hidden)
+	console.log(blink.id)
+	setInterval(() => blink.hidden = !blink.hidden, 1000)
+	let ulParent = document.querySelector('.listitems').closest('.contents > .ulParent')
+	// console.log(ulParent)
+	// =================
+	dom2.style.color ='red' 
+	let lis = document.querySelectorAll('ul > li:last-child')
+	// console.log(lis)
+	for(let li of lis){
+		li.style.color = 'red'
+	}
+
+</script>
