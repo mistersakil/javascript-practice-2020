@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <!-- <script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script> -->
+
+</head>
+
+<body>
+  <h1 id="h1">Onload and onerror event</h1>
+
+  <script>
+  let script = document.createElement('script');
+  // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js';
+  script.src = './js/error.js';
+  script.async = false;
+  document.head.append(script);
+  window.addEventListener('load',()=>{
+    console.log(script.src + ' : loaded');
+  })
+  window.onerror = function(error){
+    console.log(error);
+  };
+  // script.addEventListener('load',()=>{
+  //   console.log('lodash loaded');
+  // });
+
+
+  </script>
+
+
+
+</body>
+
+</html>
