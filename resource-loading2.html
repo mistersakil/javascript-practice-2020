@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+    <script src="./js/small.js" async></script>
+  <!-- <script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script> -->
+
+</head>
+
+<body>
+  <h1 id="h1">Dom content 1</h1>
+  <h1 id="h2">Dom content</h1>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    console.log('DOM Structures loaded...');
+
+  })
+
+  document.onreadystatechange = () =>{
+    console.log(document.readyState);
+    if(document.readyState == 'interactive'){
+      console.log('page loading ');
+    }
+  }
+
+  </script>
+    <script src="./js/long.js" defer></script>
+
+
+</body>
+
+</html>
